@@ -1,0 +1,89 @@
+CREATE DATABASE budget_app;
+CREATE USER 'webapp'@'%' INDETIFIED BY 'temporary_password';
+GRANT ALL PRIVELEGES ON budget_app.* TO 'webapp'@'%';
+FLUSH PRIVELEGES;
+
+CREATE TABLE Individual {
+    userID integer,
+    email varchar(255),
+    firstName varchar(20),
+    lastName varchar(20),
+    hasBalance integer,
+    customerRepID integer,
+    PRIMARY KEY (userID),
+    FOREIGN KEY (hasBalance) REFERENCES Balance(balanceID),
+    FOREIGN KEY (customerRepID) REFERENCES BudgetCoach(employeeID)
+    };
+
+CREATE TABLE Dependent {
+    userID integer,
+    firstName varchar(20),
+    lastName varchar(20),
+    birthDate date,
+    hasBalance integer,
+    parentID integer,
+    PRIMARY KEY (userID),
+    FOREIGN KEY (hasBalance) REFERENCES Balance(balanceID),
+    FOREIGN KEY (parentID) REFERENCES Individual(userID)
+    };
+
+CREATE TABLE BudgetCoach {
+    employeeID integer,
+    firstName varchar(20),
+    lastName varchar(20),
+    birthDate date,
+    hireDate date,
+    email varchar(255),
+    salary integer,
+    ssn integer,
+    managerID integer,
+    PRIMARY KEY (employeeID),
+    FOREIGN KEY (managerID) REFERENCES BudgetCoach(managerID)
+    };
+
+CREATE TABLE Balance {
+    balanceID integer,
+    currentFunds integer,
+    PRIMARY KEY (balanceID)
+    };
+
+CREATE TABLE Deposit {
+    depositID integer,
+    amount integer,
+    balanceID integer,
+    PRIMARY KEY (depositID),
+    FOREIGN KEY (balanceID) REFERENCES Balance(balanceID)
+    };
+
+CREATE TABLE Budget {
+    budgetID integer,
+    category varchar(50),
+    budgetCategory varchar(50),
+    balanceID integer,
+    PRIMARY KEY (budgetID),
+    FOREIGN KEY (balanceID) REFERENCES Balance(balanceID)
+    };
+
+CREATE TABLE BudgetTowards {
+    budgetID integer,
+    transactionID integer,
+    PRIMARY KEY (budgetID, transactionID),
+    FOREIGN KEY (budgetID) REFERENCES Budget(budgetID),
+    FOREIGN KEY (transactionID) REFERENCES Transaction(transactionID)
+    };
+CREATE TABLE Transaction {
+    transactionID integer,
+    dateOf date,
+    total integer,
+    company varchar(255),
+    PRIMARY KEY (transactionID)
+    };
+
+CREATE TABLE Item {
+    itemID integer,
+    price money,
+    category varchar(50),
+    transactionID integer,
+    PRIMARY KEY (itemID),
+    FOREIGN KEY (transactionID) REFERENCES Transaction(transactionID)
+    };
