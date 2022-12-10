@@ -103,3 +103,7 @@ CREATE TABLE Item
     PRIMARY KEY (itemID),
     FOREIGN KEY (transactionID) REFERENCES Transaction (transactionID)
 );
+
+
+
+
