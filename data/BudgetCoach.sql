@@ -1,0 +1,10 @@
+insert into BudgetCoach (employeeID, firstName, lastName, birthDate, hireDate, email, salary, ssn) values (55, 'Aloisia', 'Spittles', '1983-02-23', '2022-02-12', 'aspittles0@japanpost.jp', 67084, '779-40-8325');
+insert into BudgetCoach (employeeID, firstName, lastName, birthDate, hireDate, email, salary, ssn) values (110, 'Lem', 'Teasdale-Markie', '1978-06-08', '2022-07-14', 'lteasdalemarkie1@ucsd.edu', 62772, '408-20-2715');
+insert into BudgetCoach (employeeID, firstName, lastName, birthDate, hireDate, email, salary, ssn) values (165, 'Pollyanna', 'Cortin', '1994-10-03', '2022-10-10', 'pcortin2@ibm.com', 98327, '818-19-7106');
+insert into BudgetCoach (employeeID, firstName, lastName, birthDate, hireDate, email, salary, ssn) values (220, 'Brinn', 'McGarva', '1980-09-17', '2022-09-15', 'bmcgarva3@mediafire.com', 15131, '836-15-3435');
+insert into BudgetCoach (employeeID, firstName, lastName, birthDate, hireDate, email, salary, ssn) values (275, 'Alexia', 'Roxburch', '1989-04-21', '2021-01-09', 'aroxburch4@senate.gov', 20159, '150-60-2814');
+insert into BudgetCoach (employeeID, firstName, lastName, birthDate, hireDate, email, salary, ssn) values (330, 'Berti', 'Poker', '1963-07-30', '2021-02-27', 'bpoker5@lulu.com', 71660, '472-53-6232');
+insert into BudgetCoach (employeeID, firstName, lastName, birthDate, hireDate, email, salary, ssn) values (385, 'Tracey', 'Ewles', '1957-05-09', '2022-06-23', 'tewles6@patch.com', 90390, '714-52-0559');
+insert into BudgetCoach (employeeID, firstName, lastName, birthDate, hireDate, email, salary, ssn) values (440, 'Sal', 'Hallin', '1974-05-19', '2021-03-25', 'shallin7@jigsy.com', 78465, '838-65-2666');
+insert into BudgetCoach (employeeID, firstName, lastName, birthDate, hireDate, email, salary, ssn) values (495, 'Hillary', 'Greatbanks', '1981-04-28', '2022-03-03', 'hgreatbanks8@businesswire.com', 27685, '718-75-8059');
+insert into BudgetCoach (employeeID, firstName, lastName, birthDate, hireDate, email, salary, ssn) values (550, 'Filippa', 'Caldes', '1992-12-07', '2022-09-09', 'fcaldes9@auda.org.au', 40351, '285-75-4835');

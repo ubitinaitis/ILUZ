@@ -1,0 +1,10 @@
+insert into Dependent (UserID, firstName, lastName, birthDate, hasBalance, parentID) values (65, 'Myrah', 'Adkins', '2010-01-29', 42, 125);
+insert into Dependent (UserID, firstName, lastName, birthDate, hasBalance, parentID) values (130, 'Dewey', 'Potzold', '2017-12-30', 48, 250);
+insert into Dependent (UserID, firstName, lastName, birthDate, hasBalance, parentID) values (195, 'Barton', 'Abdy', '2013-02-14', 2, 375);
+insert into Dependent (UserID, firstName, lastName, birthDate, hasBalance, parentID) values (260, 'Cheslie', 'Redhead', '2009-03-09', 30, 500);
+insert into Dependent (UserID, firstName, lastName, birthDate, hasBalance, parentID) values (325, 'Huntington', 'Backe', '2016-07-12', 10, 625);
+insert into Dependent (UserID, firstName, lastName, birthDate, hasBalance, parentID) values (390, 'Niko', 'Yewdell', '2017-01-07', 21, 750);
+insert into Dependent (UserID, firstName, lastName, birthDate, hasBalance, parentID) values (455, 'Demott', 'Poad', '2008-09-09', 31, 875);
+insert into Dependent (UserID, firstName, lastName, birthDate, hasBalance, parentID) values (520, 'Lennard', 'Brason', '2018-07-28', 12, 1000);
+insert into Dependent (UserID, firstName, lastName, birthDate, hasBalance, parentID) values (585, 'Susan', 'Rawlinson', '2015-11-30', 20, 1125);
+insert into Dependent (UserID, firstName, lastName, birthDate, hasBalance, parentID) values (650, 'Leif', 'Murby', '2011-10-07', 27, 1250);
