@@ -23,15 +23,15 @@ def create_app():
 
     # Initialize the database object with the settings above. 
     db.init_app(app)
-    
-    # Import the various routes
-    from src.views import views
-    from src.customers.customers import customers
-    from src.products.products  import products
+
+    # Import our routes
+    from budgeter.budgeter import budget_blueprint
+    from individual.individual import user_blueprint
+    from dependent.dependent import dep_blueprint
 
     # Register the routes that we just imported so they can be properly handled
-    app.register_blueprint(views,       url_prefix='/classic')
-    app.register_blueprint(customers,   url_prefix='/classic')
-    app.register_blueprint(products,    url_prefix='/classic')
+    app.register_blueprint(budget_blueprint, url_prefix = '/manager')
+    app.register_blueprint(user_blueprint, url_prefix = '/user')
+    app.register_blueprint(dep_blueprint, url_prefix = '/dependent')
 
     return app
