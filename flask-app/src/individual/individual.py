@@ -59,3 +59,17 @@ def get_budget(userID):
 # post requests to add funds to a particular budget for independent and dependent
 # (ex. post request for an independent to add that they just spent x dollars on groceries)
 
+@user_blueprint.route('/budget/<user1>', methods=['POST'])
+def add_userinfo():
+    current_app.logger.info(request.form)
+    cursor = db.get_db().cursor()
+
+    userID = request.form['d.userID']
+    email = request.form['email'] 
+    firstName = request.form['firstName']
+    lastName = request.form['lastName']
+    hasBalance = request.form['hasBalance']
+    query = f'INSERT INTO individual(userID, email, firstName, lastName, hasBalance) VALUES(\"{userID}\", \"{email}\", \"{firstName}\", \"{lastName}\", \"{hasBalance}\")' 
+    cursor.execute(query)
+    db.get_db().commit()
+    return "Yippee!!!"

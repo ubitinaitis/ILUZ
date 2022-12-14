@@ -43,3 +43,20 @@ def get_userinfo(user1):
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
+
+#POST request
+
+@budget_blueprint.route('/budget', methods=['POST'])
+def add_userinfo():
+    current_app.logger.info(request.form)
+    cursor = db.get_db().cursor()
+
+    userID = request.form['userID']
+    email = request.form['email'] 
+    firstName = request.form['firstName']
+    lastName = request.form['lastName']
+    hasBalance = request.form['hasBalance']
+    query = f'INSERT INTO budgeter(userID, email, firstName, lastName, hasBalance) VALUES(\"{userID}\", \"{email}\", \"{firstName}\", \"{lastName}\", \"{hasBalance}\")' 
+    cursor.execute(query)
+    db.get_db().commit()
+    return "Yippee!!!"

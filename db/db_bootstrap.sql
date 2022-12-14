@@ -10,13 +10,13 @@ create database cool_db;
 -- all privilages to the new database we just created. 
 -- TODO: If you changed the name of the database above, you need 
 -- to change it here too.
-grant all privileges on cool_db.* to 'webapp'@'%';
+grant all privileges on budgetDB.* to 'webapp'@'%';
 flush privileges;
 
 -- Move into the database we just created.
 -- TODO: If you changed the name of the database above, you need to
 -- change it here too. 
-use cool_db;
+use budgetDB;
 
 -- Put your DDL 
 CREATE TABLE test_table (
