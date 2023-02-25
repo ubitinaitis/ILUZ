@@ -1,11 +1,11 @@
-from flask import Blueprint, jsonify, make_response, request
+from flask import Blueprint, jsonify, make_response, request, current_app
 from src import db
 
-budget_blueprint = Blueprint('budget_blueprint', __name__)
+budgeter_blueprint = Blueprint('budget_blueprint', __name__)
 
 
 # Get all the users that the budget manager supervises
-@budget_blueprint.route('/budget/<emp>', methods=['GET'])
+@budgeter_blueprint.route('/budget/<emp>', methods=['GET'])
 def get_dependents(emp):
     cursor = db.get_db().cursor()
     # Change the SQL here to the users being overseen by the budget manager
@@ -27,7 +27,7 @@ def get_dependents(emp):
 # (so it would show each “family” with their general funds)
 
 # get request for manager to click into a particular family to see  details about their funds
-@budget_blueprint.route('/budget/<user1>', methods=['GET'])
+@budgeter_blueprint.route('/budget/<user1>', methods=['GET'])
 def get_userinfo(user1):
 
     cursor = db.get_db().cursor()
@@ -46,7 +46,7 @@ def get_userinfo(user1):
 
 #POST request
 
-@budget_blueprint.route('/budget', methods=['POST'])
+@budgeter_blueprint.route('/budgeter', methods=['POST'])
 def add_userinfo():
     current_app.logger.info(request.form)
     cursor = db.get_db().cursor()
@@ -56,7 +56,9 @@ def add_userinfo():
     firstName = request.form['firstName']
     lastName = request.form['lastName']
     hasBalance = request.form['hasBalance']
-    query = f'INSERT INTO budgeter(userID, email, firstName, lastName, hasBalance) VALUES(\"{userID}\", \"{email}\", \"{firstName}\", \"{lastName}\", \"{hasBalance}\")' 
+    query = f'INSERT INTO BudgetCoach(userID, email, firstName, lastName, hasBalance) VALUES(\"{userID}\", \"{email}\", \"{firstName}\", \"{lastName}\", \"{hasBalance}\")' 
     cursor.execute(query)
     db.get_db().commit()
     return "Yippee!!!"
+
+

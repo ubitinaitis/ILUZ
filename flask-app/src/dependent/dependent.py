@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, make_response, request
+from flask import Blueprint, jsonify, make_response, request, current_app
 from src import db
 
 dep_blueprint = Blueprint('dep_blueprint', __name__)
@@ -21,7 +21,7 @@ def get_dependents(userID):
 
 # get request for budget
 
-@dep_blueprint.route('/dep/<userID>', methods=['GET'])
+@dep_blueprint.route('/dep', methods=['GET'])
 def get_budget(userID):
     cursor = db.get_db().cursor()
 
@@ -37,6 +37,3 @@ def get_budget(userID):
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
-
-# post requests to add funds to a particular budget for independent and dependent
-# (ex. post request for an independent to add that they just spent x dollars on groceries)

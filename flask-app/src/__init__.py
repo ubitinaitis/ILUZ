@@ -19,18 +19,19 @@ def create_app():
     app.config['MYSQL_DATABASE_PASSWORD'] = open('/secrets/db_password.txt').readline()
     app.config['MYSQL_DATABASE_HOST'] = 'db'
     app.config['MYSQL_DATABASE_PORT'] = 3306
-    app.config['MYSQL_DATABASE_DB'] = 'classicmodels'  # Change this to your DB name
+    app.config['MYSQL_DATABASE_DB'] = 'budgetDB'  # Change this to your DB name
 
     # Initialize the database object with the settings above. 
     db.init_app(app)
 
     # Import our routes
-    from budgeter.budgeter import budget_blueprint
-    from individual.individual import user_blueprint
-    from dependent.dependent import dep_blueprint
+    from src.budgeter.budgeter import budgeter_blueprint
+    from src.individual.individual import user_blueprint
+    from src.dependent.dependent import dep_blueprint
 
     # Register the routes that we just imported so they can be properly handled
-    app.register_blueprint(budget_blueprint, url_prefix = '/manager')
+    
+    app.register_blueprint(budgeter_blueprint, url_prefix = '/manager')
     app.register_blueprint(user_blueprint, url_prefix = '/user')
     app.register_blueprint(dep_blueprint, url_prefix = '/dependent')
 

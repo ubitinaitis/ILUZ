@@ -1,8 +1,7 @@
-from flask import Blueprint, jsonify, make_response, request
+from flask import Blueprint, jsonify, make_response, request, current_app
 from src import db
 
 user_blueprint = Blueprint('user_blueprint', __name__)
-
 
 # Get all the dependents that the user oversees
 @user_blueprint.route('/user/<id>', methods=['GET'])
@@ -23,7 +22,7 @@ def get_dependents(id):
 
 # get requests to display the current funds
 @user_blueprint.route('/user/funds/<userID>', methods=['GET'])
-def get_dependents(userID):
+def get_funds(userID):
     cursor = db.get_db().cursor()
 
     cursor.execute('SELECT i.hasBalance FROM Individual i WHERE i.userID = {0}'.format(userID))
@@ -59,17 +58,17 @@ def get_budget(userID):
 # post requests to add funds to a particular budget for independent and dependent
 # (ex. post request for an independent to add that they just spent x dollars on groceries)
 
-@user_blueprint.route('/budget/<user1>', methods=['POST'])
+@user_blueprint.route('/budget', methods=['POST'])
 def add_userinfo():
     current_app.logger.info(request.form)
     cursor = db.get_db().cursor()
 
-    userID = request.form['d.userID']
+    userID = request.form['userID']
     email = request.form['email'] 
     firstName = request.form['firstName']
     lastName = request.form['lastName']
     hasBalance = request.form['hasBalance']
-    query = f'INSERT INTO individual(userID, email, firstName, lastName, hasBalance) VALUES(\"{userID}\", \"{email}\", \"{firstName}\", \"{lastName}\", \"{hasBalance}\")' 
+    query = f'INSERT INTO Individual(userID, email, firstName, lastName, hasBalance) VALUES(\"{userID}\", \"{email}\", \"{firstName}\", \"{lastName}\", \"{hasBalance}\")' 
     cursor.execute(query)
     db.get_db().commit()
     return "Yippee!!!"

@@ -1,4 +1,6 @@
-from flask import Blueprint
+from flask import Blueprint, request, jsonify, make_response, current_app
+import json
+from src import db
 
 views = Blueprint('views', __name__)
 
@@ -6,7 +8,7 @@ views = Blueprint('views', __name__)
 # we simply return a string.  
 @views.route('/')
 def home():
-    return ('<h1>Hello from your web app!!</h1>')
+    return '<h1>Hello from your web app!!</h1>'
 
 # This is a sample route for the /test URI.  
 # as above, it just returns a simple string. 
